@@ -6,7 +6,7 @@
 
 AAHelper::AAHelper(llvm::AliasAnalysis &aa, llvm::Function *func) : AA(aa), func(func) {
     llvm::BatchAAResults batchAA(AA);
-    llvm::AliasSetTracker tracker(batchAA);
+    llvm::AliasSetTracker tracker(AA);
     for (auto &bb: *func) {
         tracker.add(bb);
     }
